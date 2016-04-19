@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Pi Numewo fòm</title>
+
+        <style>
+            html {
+                background: silver;
+                font: normal 62.5%/1.25 "Helvetica Neue", Helvetica, Arial, sans-serif;
+                color: #333;
+            }
+
+            body {
+                padding: 4rem;
+            }
+
+            main {
+                max-width: 800px;
+                margin: 0 auto;
+                padding: 2rem 2rem 3rem;
+                background: white;
+                box-shadow: 0 0 10rem rgba( 0, 0, 0, .5 );
+            }
+
+            h1 {
+                font-size: 3.6rem;
+                font-weight: 100;
+                text-align: center;
+            }
+
+            p {
+                font-size: 1.6rem;
+            }
+
+            fieldset {
+                padding: 0;
+                border: 0;
+            }
+
+            label {
+                display: block;
+                margin: 0 auto 1rem;
+                font-size: 1.8rem;
+            }
+
+            input {
+                display: block;
+                width: 100%;
+                margin: 0 auto 1rem;
+            }
+
+            strong {
+                display: block;
+                font-size: 2.4rem;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <main>
+            <h1>Pi Numewo fòm</h1>
+            <p>Just a (very, very) bad experimentation.</p>
+
+            <form action="javascript:void();">
+                <fieldset>
+                    <label for="phone">Enter your phone number:</label>
+                    <input id="phone" type="range" min="470000000" max="499999999" value="470000000" />
+                    <strong>0470/00.00.00</strong>
+                </fieldset>
+            </form>
+        </main>
+
+        <script>
+            var rPhoneNumber = /^([0-9]{3})([0-9]{2})([0-9]{2})([0-9]{2})$/;
+
+            document.querySelector( "input" ).addEventListener( "input", function() {
+                document.querySelector( "strong" ).innerHTML = this.value.replace( rPhoneNumber, "0$1/$2.$3.$4" );
+            } );
+        </script>
+    </body>
+</html>
